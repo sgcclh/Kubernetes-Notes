@@ -87,13 +87,22 @@ github有用户也反馈类似故障信息，可能由于内核版本老旧导�
 
 ## 解决方法
 
-* 从EPEL升级高版本的kernel-ml内核（目前kernel-lt内核版本为4.4，不能确定是否也能解决该bug），再通过heketi-cli删除卷，未在dmesg和/var/log/messages中出现以上错误信息。升级步骤如下：
+* 从EPEL升级高版本的kernel-ml内核，目前kernel-ml内核未4.16.7，kernel-lt内核版本为4.4，经测试目前版本的ml和lt内核都能解决该问题，再通过heketi-cli删除卷，未在dmesg和/var/log/messages中出现以上错误信息。升级步骤如下：
 
 [CentOS 7.4升级高版本内核](https://github.com/iiitux/Linux-Notes/blob/master/CentOS7%20kernel-ml.md)
 
 升级后内核版本信息：
 
+kernel-ml：
+
 ```text
 [root@k8s01 ~]# uname -a
 Linux k8s01 4.16.7-1.el7.elrepo.x86_64 #1 SMP Wed May 2 14:36:18 EDT 2018 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+kernel-lt:
+
+```text
+[root@k8s01 ~]# uname -a
+Linux k8s01 4.4.131-1.el7.elrepo.x86_64 #1 SMP Wed May 2 13:09:02 EDT 2018 x86_64 x86_64 x86_64 GNU/Linux
 ```
